@@ -46,6 +46,7 @@ void BTExecutor::createBehaviorTree() {
   Parameter strParam = this->get_parameter("bt");
   string treeXml = strParam.as_string();
 
+  // BAD CODE, REASON FOR INCLUDE CPP GOD HELP ME
   RCLCPP_INFO(get_logger(), "Registering Nodes");
   NodeBuilder builder = [=](const string &name,
                             const NodeConfiguration &config) {
@@ -56,6 +57,7 @@ void BTExecutor::createBehaviorTree() {
     return std::make_unique<SubscriberNode>(name, config, shared_from_this());
   };
   factory_.registerBuilder<SubscriberNode>("Subscriber", builder);
+  //
 
   RCLCPP_INFO(get_logger(), "Creating Tree %s", treeXml.c_str());
   tree_ = factory_.createTreeFromFile(treeXml);
