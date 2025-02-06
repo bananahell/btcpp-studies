@@ -9,7 +9,7 @@ PublisherNode::PublisherNode(const string &xmlTagName,
                              const NodeConfiguration &conf,
                              Node::SharedPtr nodePtr)
     : SyncActionNode(xmlTagName, conf) {
-  string topic = "hello";
+  string topic = "bt_pubsub/sub";
   SystemDefaultsQoS qos = SystemDefaultsQoS();
   qos.best_effort();
   strPublisherPtr_ = nodePtr->create_publisher<String>(topic, qos);
@@ -23,7 +23,6 @@ NodeStatus PublisherNode::tick() {
   strMsg.data = msg.value();
   for (int i = 0; i < timesToSend; i++) {
     strPublisherPtr_->publish(strMsg);
-    sleep(1);
   }
   return NodeStatus::SUCCESS;
 }

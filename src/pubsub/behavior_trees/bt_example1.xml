@@ -2,11 +2,7 @@
 <root main_tree_to_execute="BehaviorTree">
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
-        <Sequence name="Publish and Subscribe Sequence">
-            <Action ID="Publisher" message="hello world" number="1"/>
-            <Condition ID="Subscriber" message="{key_msg}" name="Writes to Blackbox" wait_duration_sec="20"/>
-            <Action ID="Publisher" message="{key_msg}" name="Reads from Blackbox" number="3"/>
-        </Sequence>
+        <Publisher message="hello world" number="2"/>
     </BehaviorTree>
     <!-- ////////// -->
     <TreeNodesModel>
@@ -213,10 +209,6 @@
             <input_port name="spin_dist">Spin distance</input_port>
             <input_port name="time_allowance">Allowed time for spinning</input_port>
         </Action>
-        <Condition ID="Subscriber">
-            <output_port name="message"/>
-            <input_port name="wait_duration_sec"/>
-        </Condition>
         <Condition ID="TimeExpired">
             <input_port name="seconds">Time to check if expired</input_port>
         </Condition>

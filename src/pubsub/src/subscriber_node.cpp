@@ -11,7 +11,7 @@ SubscriberNode::SubscriberNode(const string &xmlTagName,
                                const NodeConfiguration &conf,
                                Node::SharedPtr nodePtr)
     : ConditionNode(xmlTagName, conf) {
-  string topic = "hello";
+  string topic = "bt_pubsub/sub";
   SystemDefaultsQoS qos = SystemDefaultsQoS();
   qos.best_effort();
   strSubscriberPtr_ = nodePtr->create_subscription<String>(
@@ -19,10 +19,11 @@ SubscriberNode::SubscriberNode(const string &xmlTagName,
 }
 
 void SubscriberNode::updateMsg(const String::SharedPtr newMsg) {
+  transform(newMsg->data.begin(), newMsg->data.end(), newMsg->data.begin(),
+            ::toupper);
   msg_ = newMsg->data;
 }
 
-// Waits for given duration or until message is received
 bool SubscriberNode::waitForMessage(int waitDuration) {
   WaitSet waitSet;
   waitSet.add_subscription(strSubscriberPtr_);

@@ -20,26 +20,31 @@ find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
 set(TARGET_DEPENDS
-    rclcpp
-    behaviortree_cpp_v3
-    rclcpp_action
-    nav2_msgs
-    nav2_util
-    nav2_core
-    nav2_behavior_tree
-    geometry_msgs
-    std_msgs
-    tf2
-    tf2_geometry_msgs
+  rclcpp
+  behaviortree_cpp_v3
+  rclcpp_action
+  nav2_msgs
+  nav2_util
+  nav2_core
+  nav2_behavior_tree
+  geometry_msgs
+  std_msgs
+  tf2
+  tf2_geometry_msgs
 )
 
 install(DIRECTORY
-behavior_trees launch
-DESTINATION share/${PROJECT_NAME}
+  behavior_trees launch
+  DESTINATION share/${PROJECT_NAME}
 )
 
 set(BEHAVIOR_SOURCES
-src/bt_executor.cpp
+  src/bt_executor.cpp
+  src/publisher_node.cpp
+  src/subscriber_node.cpp
+  include/bt_executor.h
+  include/publisher_node.h
+  include/subscriber_node.h
 )
 
 include_directories(include)
@@ -48,8 +53,9 @@ ament_target_dependencies(bt_executor ${TARGET_DEPENDS})
 target_link_libraries(bt_executor ${YAML_CPP_LIBRARIES})
 
 install(TARGETS
-bt_executor
-DESTINATION lib/${PROJECT_NAME})
+  bt_executor
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

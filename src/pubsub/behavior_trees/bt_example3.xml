@@ -2,11 +2,7 @@
 <root main_tree_to_execute="BehaviorTree">
     <!-- ////////// -->
     <BehaviorTree ID="BehaviorTree">
-        <Sequence name="Publish and Subscribe Sequence">
-            <Action ID="Publisher" message="hello world" number="1"/>
-            <Condition ID="Subscriber" message="{key_msg}" name="Writes to Blackbox" wait_duration_sec="20"/>
-            <Action ID="Publisher" message="{key_msg}" name="Reads from Blackbox" number="3"/>
-        </Sequence>
+        <Action ID="GoToPose" x="0" y="2" yaw="-1.57"/>
     </BehaviorTree>
     <!-- ////////// -->
     <TreeNodesModel>
@@ -107,6 +103,11 @@
             <input_port name="server_timeout">Server timeout</input_port>
         </Action>
         <Condition ID="GlobalUpdatedGoal"/>
+        <Action ID="GoToPose">
+            <input_port name="x">Coordinate in X direction</input_port>
+            <input_port name="y">Coordinate in Y direction</input_port>
+            <input_port name="yaw">Yaw Angle in radians</input_port>
+        </Action>
         <Action ID="GoalCheckerSelector">
             <input_port name="default_goal_checker">Default goal checker of the controller selector</input_port>
             <output_port name="selected_goal_checker">Name of the selected goal checker received from the topic subcription</output_port>
