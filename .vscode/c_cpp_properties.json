@@ -5,7 +5,9 @@
       "includePath": [
         "${default}",
         "/opt/ros/jazzy/include/**",
-        "${workspaceFolder}/src/**"
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/src/custom_action_cpp/include",
+        "${workspaceFolder}/install/custom_action_interfaces/**"
       ],
       "defines": [],
       "compilerPath": "/usr/bin/gcc",
