@@ -7,13 +7,13 @@ using namespace BT;
 using namespace std;
 
 static const char* xml_text = R"(
-<root BTCPP_format="4" >
+<root BTCPP_format="4">
   <BehaviorTree ID="MainTree">
     <Sequence name="root_sequence">
-      <CheckBattery   name="battery_ok"/>
-      <OpenGripper    name="open_gripper"/>
+      <CheckBattery name="battery_ok"/>
+      <OpenGripper name="open_gripper"/>
       <ApproachObject name="approach_object"/>
-      <CloseGripper   name="close_gripper"/>
+      <CloseGripper name="close_gripper"/>
     </Sequence>
   </BehaviorTree>
 </root>
