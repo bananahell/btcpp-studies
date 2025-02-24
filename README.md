@@ -32,7 +32,7 @@ Then reference your local workspace
 
 For this first example, you can run the first behavior tree written here, so you're gonna use the command:
 
-`ros2 run first_tree first_tree`
+`ros2 run first_tree main`
 
 And so you'll get the result for this first, very silly, behavior tree:
 

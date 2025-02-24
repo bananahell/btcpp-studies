@@ -7,7 +7,8 @@
         "/opt/ros/jazzy/include/**",
         "${workspaceFolder}/src/**",
         "${workspaceFolder}/src/custom_action_cpp/include",
-        "${workspaceFolder}/install/custom_action_interfaces/**"
+        "${workspaceFolder}/install/custom_action_interfaces/**",
+        "${workspaceFolder}/src/first_tree/include"
       ],
       "defines": [],
       "compilerPath": "/usr/bin/gcc",

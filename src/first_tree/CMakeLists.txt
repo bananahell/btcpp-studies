@@ -16,11 +16,19 @@ set(TARGET_DEPENDS
   behaviortree_cpp_v3
 )
 
-add_executable(first_tree src/t01_build_your_first_tree)
-ament_target_dependencies(first_tree ${TARGET_DEPENDS})
+include_directories(include)
+
+add_executable(main
+  src/_Main.cpp
+  src/ApproachObject.cpp
+  include/ApproachObject.h
+  src/GripperInterface.cpp
+  include/GripperInterface.h
+)
+ament_target_dependencies(main ${TARGET_DEPENDS})
 
 install(TARGETS
-  first_tree
+  main
   DESTINATION lib/${PROJECT_NAME}
 )
 
