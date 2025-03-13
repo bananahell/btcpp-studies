@@ -2,11 +2,11 @@
 #include <memory>
 #include <thread>
 
-#include "custom_action_cpp/visibility_control.h"
 #include "custom_action_interfaces/action/fibonacci.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
+#include "visibility_control.h"
 
 namespace custom_action_cpp {
 
